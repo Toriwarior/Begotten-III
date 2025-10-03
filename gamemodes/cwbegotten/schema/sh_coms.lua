@@ -2408,6 +2408,7 @@ local COMMAND = Clockwork.command:New("RemoveItemsRadius");
 	COMMAND.access = "s";
 	COMMAND.alias = {"ClearItemsRadius", "RemoveItemsInRadius"};
 	COMMAND.arguments = 1;
+	COMMAND.types = {"Radius"}
 	
 	-- Called when the command has been run.
 	function COMMAND:OnRun(player, arguments)
@@ -2717,7 +2718,8 @@ local COMMAND = Clockwork.command:New("RemoveNPCSpawn")
 	COMMAND.tip = "Remove an npc spawn location at your cursor."
 	COMMAND.access = "s"
 	COMMAND.optionalArguments = 1;
-	COMMAND.text = "[int Distance]"
+	COMMAND.text = "[int Radius]"
+	COMMAND.types = {"Radius"}
 
 	-- Called when the command has been run.
 	function COMMAND:OnRun(player, arguments)
