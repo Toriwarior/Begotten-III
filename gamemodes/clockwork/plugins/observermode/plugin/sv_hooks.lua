@@ -38,9 +38,7 @@ end;
 
 local gfacs = {
 	["Gatekeeper"] = true,
-	["Holy Hierarchy"] = true,
-	["Aristocracy Of Light"] = true,
-	["Militant Orders of the Villa"] = true
+	["Holy Hierarchy"] = true
 }
 
 -- Called just after a player spawns.

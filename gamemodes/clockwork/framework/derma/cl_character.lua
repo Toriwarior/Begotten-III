@@ -3820,9 +3820,9 @@ function PANEL:Init()
 	
 	if self.curFaction == "Goreic Warrior" then
 		self.subfactionForm:SetName("Clans");
-	elseif self.curFaction == "Gatekeeper" or self.curFaction == "Hillkeeper" or self.curFaction == "Militant Orders of the Villa" then
+	elseif self.curFaction == "Gatekeeper" or self.curFaction == "Hillkeeper" then
 		self.subfactionForm:SetName("Troops");
-	elseif self.curFaction == "Holy Hierarchy" or self.curFaction == "Aristocracy Of Light" then
+	elseif self.curFaction == "Holy Hierarchy" then
 		self.subfactionForm:SetName("Orders");
 	elseif self.curFaction == "Children of Satan" then
 		self.subfactionForm:SetName("Bloodlines");
