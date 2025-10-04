@@ -48,7 +48,7 @@ lua/weapons/
 lua/Clockwork.lua
 lua/send.txt
 
-settings
+settings/
 settings/presets/
 settings/spawnlist_default/
 settings/users.txt
