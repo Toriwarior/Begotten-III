@@ -284,8 +284,13 @@ elseif map == "bg_district34" then
 	if !cwDueling.statues then
 		cwDueling.statues = {
 			["village"] = {
+<<<<<<< HEAD
 				["spawnPosition"] = Vector(-9266, 15363, 234),
 				["spawnAngles"] = Angle(0, 45, 0),
+=======
+				["spawnPosition"] = Vector(1616, 1077, 934),
+				["spawnAngles"] = Angle(0, 160, 0),
+>>>>>>> parent of 937dcbe8 (Revert "Goreic quadrae warfighter (#7)")
 			},
 			["cave"] = {
 				["spawnPosition"] = Vector(-1671, 2113, -210),

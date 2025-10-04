@@ -4,7 +4,7 @@
 --]]
 
 local map = game.GetMap();
-local bMap = map == "rp_begotten3" or map == "rp_district21";
+local bMap = map == "rp_begotten3" or map == "rp_district21" or map == "bg_district34";
 
 function Schema:ClockworkInitialized()
 	if !self.bountyData then
@@ -1179,6 +1179,14 @@ function Schema:PlayerFootstep(player, position, foot, soundString, volume, reci
 			end
 			
 			return true;
+		elseif player:GetSubfaction() == "Clan Grock" then
+			if player:GetCharacterData("level", 1) >= 30 then
+				if player:IsRunning() then
+					util.ScreenShake(player:GetPos(), 1, 1, 0.5, 500)
+				else
+					util.ScreenShake(player:GetPos(), 0.5, 1, 0.5, 500)
+				end
+			end
 		end
 	else
 		local running = false;
@@ -2485,7 +2493,7 @@ function Schema:PlayerCanUseDoor(player, door)
 				
 				return false;
 			end
-		elseif doorName == "castle_bigdoor1" or doorName == "castle_bigdoor2" or doorName == "gate_door" then
+		elseif doorName == "castle_bigdoor1" or doorName == "castle_bigdoor2" or doorName == "gate_door" or (doors["hell"] and table.HasValue(doors["hell"], doorName)) then
 			return false;
 		end
 	end
@@ -3010,9 +3018,17 @@ function Schema:PlayerCharacterLoaded(player)
 	local subfaction = player:GetCharacterData("kinisgerOverrideSubfaction") or player:GetSubfaction();
 	
 	if subfaction == "Clan Grock" then
-		player:SetModelScale(1.12, FrameTime());
-		player:SetViewOffset(Vector(0, 0, 72))
-		player:SetViewOffsetDucked(Vector(0, 0, 32))
+		local levelCap = 40;
+		
+		if cwBeliefs then
+			levelCap = cwBeliefs.sacramentLevelCap;
+		end
+		
+		local scale = math.min(player:GetCharacterData("level", 1), levelCap);
+	
+		player:SetModelScale(1 + (scale * 0.01), FrameTime());
+		player:SetViewOffset(Vector(0, 0, 64 + scale));
+		player:SetViewOffsetDucked(Vector(0, 0, 28 + (scale / 2)));
 	else
 		player:SetModelScale(1, FrameTime());
 		player:SetViewOffset(Vector(0, 0, 64));

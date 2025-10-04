@@ -10,10 +10,12 @@ if map == "rp_begotten3" then
 	cwSailing.gorewatchBounds = {Vector(9422, 11862, -1210), Vector(10055, 10389, -770)};
 elseif map == "rp_district21" then
 	cwSailing.gorewatchBounds = {Vector(-9328, -8640, -146), Vector(-8771, -8105, 686)};
+elseif map == "bg_district34" then
+	cwSailing.gorewatchBounds = {Vector(8817, 8018, 959), Vector(9477, 8582, 1242)};
 end
 
 if !cwSailing.shipDestinations then
-	if map == "rp_begotten3" or map == "rp_district21" then
+	if map == "rp_begotten3" or map == "rp_district21" or map == "bg_district34" then
 		cwSailing.shipDestinations = {
 			["docks"] = {name = "the Gore Forest"},
 			["hell"] = {name = "Hell"},
@@ -271,6 +273,7 @@ if !cwSailing.shipLocations then
 					{occupied = false, pos = Vector(11431, 8654, 198), angles = Angle(0, 0, 0)},
 				},
 			},
+<<<<<<< HEAD
 			["wastelandlava"] = {
 				["longship"] = {
 					{occupied = false, pos = Vector(-2982, 8593, 191), angles = Angle(0, 90, 0), bodygroup = 1},
@@ -279,6 +282,8 @@ if !cwSailing.shipLocations then
 					{occupied = false, pos = Vector(-11391, -14609, -1747), angles = Angle(0, -90, 0)},
 				},
 			},
+=======
+>>>>>>> parent of 937dcbe8 (Revert "Goreic quadrae warfighter (#7)")
 		};
 	end
 end
