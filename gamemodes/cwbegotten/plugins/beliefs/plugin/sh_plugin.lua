@@ -160,7 +160,7 @@ local COMMAND = Clockwork.command:New("CharAddExperienceRadius")
     COMMAND.arguments = 2;
     COMMAND.text = "<int Experience> <int Radius>";
     COMMAND.alias = {"AddFaithRadius", "GiveFaithRadius", "CharAddXPRadius", "AddXPRadius", "AddExperienceRadius", "PlyAddXPRadius", "PlyAddExperienceRadius"};
-
+	COMMAND.types = {"", "Radius"}
     -- Called when the command has been run.
     function COMMAND:OnRun(player, arguments)
 		local radius = tonumber(arguments[2]);
@@ -180,7 +180,7 @@ local COMMAND = Clockwork.command:New("CharAddExperienceRadius")
 		
 		local counter = 0;
 		
-        for k, v in pairs(ents.FindInSphere(player:GetPos(), radius)) do
+        for k, v in pairs(ents.FindInSphere(player:GetEyeTrace().HitPos, radius)) do
             if v:IsPlayer() and v:Alive() and !v.cwObserverMode then
                 v:HandleXP(xp);
 				
@@ -1473,7 +1473,7 @@ local COMMAND = Clockwork.command:New("Warcry");
 				
 					hook.Run("RunModifyPlayerSpeed", player, player.cwInfoTable, true);
 				
-					timer.Simple(20.5, function()
+					timer.Create("FearsomeWolfTimer_"..player:EntIndex(), 20.5, 1, function()
 						if IsValid(player) then
 							player.fearsomeSpeed = nil;
 							player.warCryVictims = nil;
