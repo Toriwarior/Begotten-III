@@ -48,8 +48,10 @@ lua/weapons/
 lua/Clockwork.lua
 lua/send.txt
 
+settings/
 settings/presets/
 settings/spawnlist_default/
 settings/users.txt
+
 
 addons/custom/
